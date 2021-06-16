@@ -8,7 +8,7 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	unsigned int temp, swap_flag = 0, i, big_flag = 1;
+	unsigned int swap_flag = 0, i, big_flag = 1;
 
 	while (big_flag != 0)
 	{
@@ -17,9 +17,7 @@ void bubble_sort(int *array, size_t size)
 			/* Comparation */
 			if (array[i - 1] > array[i])
 			{
-				temp = array[i - 1];
-				array[i - 1] = array[i];
-				array[i] = temp;
+				swap_int(&array[i - 1], &array[i]);
 				swap_flag = 1;
 				print_array(array, size);
 			}
@@ -30,3 +28,19 @@ void bubble_sort(int *array, size_t size)
 			big_flag = 0;
 	}
 }
+
+/**
+ * swap_int - function that swap two elements of an array
+ * @e1: first element
+ * @e2: second element
+ * Return: void function
+ */
+void swap_int(int *e1, int *e2)
+{
+	int tmp = *e1;
+
+	*e1 = *e2;
+	*e2 = tmp;
+}
+
+
